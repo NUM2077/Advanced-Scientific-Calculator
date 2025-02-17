@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="calculator-wrapper">
+        <div class="theme-switcher">
+            <button onclick="toggleTheme()" id="theme-btn">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button onclick="toggleMode()" id="mode-btn">RAD</button>
+        </div>
+        
+        <div class="calculator-container">
+            <div class="calculator">
+                <div class="display-section">
+                    <div class="history" id="history"></div>
+                    <input type="text" id="display" readonly>
+                    <div class="memory-indicator" id="memory-indicator"></div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('main')">Main</button>
+                    <button class="tab-btn" onclick="switchTab('scientific')">Scientific</button>
+                    <button class="tab-btn" onclick="switchTab('conversion')">Convert</button>
+                </div>
+
+                <div class="buttons-container">
+                    <div class="button-set main-buttons active">
+                        <!-- Scientific Functions Row 1 -->
+                        <button class="function" onclick="calculateFactorial()">x!</button>
+                        <button class="function" onclick="calculateSquare()">x²</button>
+                        <button class="function" onclick="calculateSquareRoot()">√</button>
+                        <button class="function" onclick="calculatePower()">xʸ</button>
+                        <button class="function" onclick="calculateExp()">exp</button>
+
+                        <!-- Scientific Functions Row 2 -->
+                        <button class="function" onclick="calculateSin()">sin</button>
+                        <button class="function" onclick="calculateCos()">cos</button>
+                        <button class="function" onclick="calculateTan()">tan</button>
+                        <button class="function" onclick="calculateLog()">log</button>
+                        <button class="function" onclick="calculateLn()">ln</button>
+
+                        <!-- Numbers and Basic Operations -->
+                        <button class="clear" onclick="clearDisplay()">C</button>
+                        <button class="delete" onclick="deleteLastChar()">DEL</button>
+                        <button class="operator" onclick="appendToDisplay('%')">%</button>
+                        <button class="operator" onclick="appendToDisplay('/')">&divide;</button>
+                        <button class="memory" onclick="memoryAdd()">M+</button>
+
+                        <button class="number" onclick="appendToDisplay('7')">7</button>
+                        <button class="number" onclick="appendToDisplay('8')">8</button>
+                        <button class="number" onclick="appendToDisplay('9')">9</button>
+                        <button class="operator" onclick="appendToDisplay('*')">×</button>
+                        <button class="memory" onclick="memorySubtract()">M-</button>
+
+                        <button class="number" onclick="appendToDisplay('4')">4</button>
+                        <button class="number" onclick="appendToDisplay('5')">5</button>
+                        <button class="number" onclick="appendToDisplay('6')">6</button>
+                        <button class="operator" onclick="appendToDisplay('-')">-</button>
+                        <button class="memory" onclick="memoryRecall()">MR</button>
+
+                        <button class="number" onclick="appendToDisplay('1')">1</button>
+                        <button class="number" onclick="appendToDisplay('2')">2</button>
+                        <button class="number" onclick="appendToDisplay('3')">3</button>
+                        <button class="operator" onclick="appendToDisplay('+')">+</button>
+                        <button class="memory" onclick="memoryClear()">MC</button>
+
+                        <button class="number" onclick="appendToDisplay('0')">0</button>
+                        <button class="number" onclick="appendToDisplay('.')">.</button>
+                        <button class="number" onclick="toggleSign()">±</button>
+                        <button class="equals" onclick="calculate()">=</button>
+                        <button class="function" onclick="calculatePi()">π</button>
+                    </div>
+
+                    <div class="button-set scientific-buttons">
+                        <button class="function" onclick="calculateSinh()">sinh</button>
+                        <button class="function" onclick="calculateCosh()">cosh</button>
+                        <button class="function" onclick="calculateTanh()">tanh</button>
+                        <button class="function" onclick="calculateAsin()">asin</button>
+                        <button class="function" onclick="calculateAcos()">acos</button>
+
+                        <button class="function" onclick="calculateAtan()">atan</button>
+                        <button class="function" onclick="calculateCubeRoot()">∛</button>
+                        <button class="function" onclick="calculateCube()">x³</button>
+                        <button class="function" onclick="calculateEuler()">e</button>
+                        <button class="function" onclick="calculateRandom()">rand</button>
+
+                        <button class="function" onclick="calculateMod()">mod</button>
+                        <button class="function" onclick="calculateAbs()">|x|</button>
+                        <button class="function" onclick="calculateFloor()">⌊x⌋</button>
+                        <button class="function" onclick="calculateCeil()">⌈x⌉</button>
+                        <button class="function" onclick="calculateRound()">round</button>
+                    </div>
+
+                    <div class="button-set conversion-buttons">
+                        <button class="conversion" onclick="convertLength()">Length</button>
+                        <button class="conversion" onclick="convertMass()">Mass</button>
+                        <button class="conversion" onclick="convertTemperature()">Temp</button>
+                        <button class="conversion" onclick="convertArea()">Area</button>
+                        <button class="conversion" onclick="convertVolume()">Volume</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="timestamp" id="timestamp">UTC: 2025-02-17 17:16:08</div>
+            <div class="user">User: NUM2077</div>
+        </div>
+
+        <div class="shortcuts-panel">
+            <button class="shortcuts-btn" onclick="toggleShortcuts()">
+                <i class="fas fa-keyboard"></i> Keyboard Shortcuts
+            </button>
+            <div class="shortcuts-content" id="shortcuts-content">
+                <!-- Shortcuts content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

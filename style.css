@@ -1,0 +1,280 @@
+:root {
+    /* Light Theme */
+    --primary-color-light: #ffffff;
+    --secondary-color-light: #f0f0f0;
+    --text-color-light: #333333;
+    --accent-color-light: #007AFF;
+    --button-hover-light: #e0e0e0;
+    --display-bg-light: #ffffff;
+
+    /* Dark Theme */
+    --primary-color-dark: #1c1c1c;
+    --secondary-color-dark: #2c2c2c;
+    --text-color-dark: #ffffff;
+    --accent-color-dark: #0A84FF;
+    --button-hover-dark: #3c3c3c;
+    --display-bg-dark: #000000;
+
+    /* Common Colors */
+    --function-color: #FF375F;
+    --operator-color: #FF9F0A;
+    --memory-color: #30D158;
+    --error-color: #FF453A;
+}
+
+/* Theme Classes */
+.theme-light {
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --text-color: var(--text-color-light);
+    --accent-color: var(--accent-color-light);
+    --button-hover: var(--button-hover-light);
+    --display-bg: var(--display-bg-light);
+}
+
+.theme-dark {
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --text-color: var(--text-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --button-hover: var(--button-hover-dark);
+    --display-bg: var(--display-bg-dark);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.calculator-wrapper {
+    position: relative;
+    max-width: 800px;
+    width: 95%;
+    padding: 20px;
+}
+
+.calculator-container {
+    background: var(--secondary-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.display-section {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.history {
+    height: 30px;
+    color: var(--text-color);
+    opacity: 0.6;
+    text-align: right;
+    padding: 5px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+#display {
+    width: 100%;
+    height: 70px;
+    background-color: var(--display-bg);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 32px;
+    color: var(--text-color);
+    text-align: right;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.memory-indicator {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 12px;
+    color: var(--memory-color);
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.buttons-container {
+    position: relative;
+}
+
+.button-set {
+    display: none;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.button-set.active {
+    display: grid;
+}
+
+button {
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    color: var(--text-color);
+    background: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.number { background: var(--secondary-color); }
+.operator { background: var(--operator-color); color: white; }
+.function { background: var(--function-color); color: white; }
+.memory { background: var(--memory-color); color: white; }
+.equals { background: var(--accent-color); color: white; }
+.clear { background: var(--error-color); color: white; }
+.delete { background: var(--error-color); color: white; }
+
+.theme-switcher {
+    position: absolute;
+    top: -50px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-switcher button {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.info {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.shortcuts-panel {
+    position: absolute;
+    bottom: -50px;
+    left: 20px;
+}
+
+.shortcuts-btn {
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    background: var(--accent-color);
+    color: white;
+}
+
+.shortcuts-content {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background: var(--secondary-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.button-set.active {
+    animation: slideIn 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .calculator-wrapper {
+        padding: 10px;
+    }
+
+    .button-set {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    button {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    #display {
+        font-size: 28px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-set {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        flex: 1 1 calc(33.33% - 10px);
+    }
+}
